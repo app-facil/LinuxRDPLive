@@ -43,3 +43,6 @@ jobs:
 
     - name: Display ngrok URL
       run: curl --silent --show-error http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url'
+
+    - name: Keep the job running
+      run: tail -f /dev/null
