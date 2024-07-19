@@ -10,6 +10,7 @@ RUN apt-get update && \
 RUN echo 'root:root' | chpasswd
 # Expose the web-based terminal port
 EXPOSE 4200
+EXPOSE 22
 
 # Start shellinabox
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
