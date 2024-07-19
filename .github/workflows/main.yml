@@ -35,9 +35,11 @@ jobs:
       env:
         NGROK_AUTHTOKEN: ${{ secrets.NGROK_AUTHTOKEN }}
 
+    - name: Configure ngrok with authtoken
+      run: ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
+
     - name: Start ngrok
       run: ngrok http 4200 &
 
     - name: Display ngrok URL
       run: curl --silent --show-error http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url'
-      
